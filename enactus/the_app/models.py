@@ -11,7 +11,7 @@ class Welcome(models.Model):
 class AboutEnactus(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to="gallery")
 
 
 class Projects(models.Model):

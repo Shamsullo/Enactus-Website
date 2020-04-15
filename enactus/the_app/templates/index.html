@@ -3,10 +3,18 @@
 
 <h1> The list of the things in the database: </h1>
 
+{{ aboutEnactus }}
+<br>
+{% for enactus in aboutEnactus %}
+{{ enactus.photo }}
+<br>
+<img src="{{ enactus.photo.url }}" alt="Simply Easy Learning">
+
+{% endfor %}
 <ul>
-    {% for enactus in aboutEnactus %}
-    <li>{{ enactus.description }} </li>
-    {% endfor %}
+    <!-- {% for enactus in aboutEnactus %}
+        <li>{{ enactus.description }} </li>
+    {% endfor %} -->
     <li>2</li>
     <li>3</li>
 </ul>
