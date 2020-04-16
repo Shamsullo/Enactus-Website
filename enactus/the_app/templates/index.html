@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Enactus Auca</title>
 
-<h1> The list of the things in the database: </h1>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
 
-{{ aboutEnactus }}
-<br>
-{% for enactus in aboutEnactus %}
-{{ enactus.photo }}
-<br>
-<img src="{{ enactus.photo.url }}" alt="Simply Easy Learning">
+        {% load static %}
+        <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
 
-{% endfor %}
-<ul>
-    <!-- {% for enactus in aboutEnactus %}
-        <li>{{ enactus.description }} </li>
-    {% endfor %} -->
-    <li>2</li>
-    <li>3</li>
-</ul>
+    </head>
+    <body>
+        <div class="container">
+            <h1> The list of the things in the database: </h1>
+            
+            {{ aboutEnactus }}
+            <br>
+            {% for enactus in aboutEnactus %}
+            {{ enactus.title }}
+
+            <p>{{ enactus.text }}</p>
+            {{ enactus.photo }}
+            <br>
+            <img src="{{ enactus.photo.url }}" alt="Simply Easy Learning">
+            
+            {% endfor %}
+            <ul>
+                <!-- {% for enactus in aboutEnactus %}
+                    <li>{{ enactus.description }} </li>
+                {% endfor %} -->
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </body>
 
 </html>

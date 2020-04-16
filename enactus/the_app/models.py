@@ -13,11 +13,16 @@ class AboutEnactus(models.Model):
     text = models.TextField()
     photo = models.ImageField(upload_to="gallery")
 
+    def __str__(self):
+        return self.title
 
 class Projects(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     photo = models.ImageField()
+
+    def __str__(self):
+        return self.title
 
 
 class AcademicAdvisors(models.Model):
@@ -27,6 +32,9 @@ class AcademicAdvisors(models.Model):
     position = models.CharField(max_length=100)
     desc = models.CharField(max_length=150)
 
+    def __str__(self):
+        return self.f_name + " " + self.l_name
+
 
 class Contact(models.Model):
     phone_num1 = models.CharField(max_length=30)
@@ -35,7 +43,14 @@ class Contact(models.Model):
     insta_link = models.CharField(max_length=150)
     fb_link = models.CharField(max_length=150)
 
+    def __str__(self):
+        return "Our Contact"
+
 
 class Partners(models.Model):
+    name = models.CharField(max_length = 150) 
     logo = models.ImageField()
     web_link = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
