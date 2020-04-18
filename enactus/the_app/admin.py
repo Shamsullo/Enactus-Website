@@ -28,4 +28,3 @@ class ProjectsAdmin(TranslationAdmin):
 @admin.register(AcademicAdvisors)
 class AcademicAdvisorsAdmin(TranslationAdmin):
     list_display = ("f_name", "url")
-    
