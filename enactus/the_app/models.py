@@ -17,7 +17,7 @@ class AboutEnactus(models.Model):
         return self.title
 
 class Projects(models.Model):
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     photo = models.ImageField()
 
