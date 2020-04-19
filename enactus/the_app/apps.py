@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class TheAppConfig(AppConfig):
+class RequestsConfig(AppConfig):
     name = 'the_app'
+    verbose_name = 'Content'

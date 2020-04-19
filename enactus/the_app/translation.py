@@ -2,6 +2,9 @@
 from modeltranslation.translator import register, TranslationOptions
 from .models import AboutEnactus, Projects, AcademicAdvisors
 
+AboutEnactus
+
+
 @register(AboutEnactus)
 class AboutEnactusTranslationOptions(TranslationOptions):
     fields = ('title', 'text')

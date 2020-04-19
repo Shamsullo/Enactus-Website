@@ -14,7 +14,8 @@ class AboutEnactus(models.Model):
     photo = models.ImageField()
 
     def __str__(self):
-        return self.title
+        return self.name
+
 
 class Projects(models.Model):
     name = models.CharField(max_length=100)
@@ -22,7 +23,7 @@ class Projects(models.Model):
     photo = models.ImageField()
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class AcademicAdvisors(models.Model):
@@ -48,7 +49,7 @@ class Contact(models.Model):
 
 
 class Partners(models.Model):
-    name = models.CharField(max_length = 150) 
+    name = models.CharField(max_length=150)
     logo = models.ImageField()
     web_link = models.CharField(max_length=100)
 
