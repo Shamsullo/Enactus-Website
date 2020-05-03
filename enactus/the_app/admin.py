@@ -23,7 +23,7 @@ class ProjectAdminForm(forms.ModelForm):
 
 
 admin.site.register(Welcome)
-
+admin.site.register(Message)
 # admin.site.register(Projects)
 # admin.site.register(AcademicAdvisors)
 admin.site.register(Contact)

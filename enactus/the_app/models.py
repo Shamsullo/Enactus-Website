@@ -55,3 +55,11 @@ class Partners(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Message(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=30, null=True)
+    subject = models.CharField(max_length=100, null=True)
+    message = models.TextField()
