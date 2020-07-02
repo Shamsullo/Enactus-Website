@@ -1,6 +1,5 @@
 from django import forms
 
-
 from .models import Message
 
 
@@ -8,7 +7,7 @@ class MessageForm(forms.ModelForm):
     name = forms.CharField(label='', widget=forms.TextInput(
         attrs={"placeholder": "Your name"}))
     email = forms.EmailField(label='', widget=forms.TextInput(
-        attrs={"placeholder": "Your email"}))
+        attrs={"placeholder": "Your email", "type":"email"}))
     phone_number = forms.CharField(label='', widget=forms.TextInput(
         attrs={"placeholder": "Your phone number"}))
     subject = forms.CharField(label='', widget=forms.TextInput(

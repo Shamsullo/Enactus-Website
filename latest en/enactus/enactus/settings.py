@@ -66,6 +66,7 @@ ROOT_URLCONF = 'enactus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # i haven't told the django where to look for templates yet 
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {

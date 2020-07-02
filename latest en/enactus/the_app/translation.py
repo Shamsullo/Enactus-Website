@@ -1,6 +1,6 @@
 
 from modeltranslation.translator import register, TranslationOptions
-from .models import Welcome, AboutEnactus, Gallerry, Projects, AcademicAdvisors, Contact
+from .models import Welcome, AboutEnactus, Gallery, Projects, AcademicAdvisors, Contact
 
 
 @register(Welcome)

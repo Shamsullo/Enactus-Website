@@ -15,6 +15,8 @@ def home(request):
     projects = Projects.objects.all()
     contact = Contact.objects.get(id=1)
     welcome = Welcome.objects.get(id=1)
+    gallery = Gallery.objects.all()
+    team = AcademicAdvisors.objects.all()
 
     form = MessageForm(request.POST or None)
     if form.is_valid():
@@ -35,8 +37,8 @@ def home(request):
                   fail_silently=False)
 
     context = {'aboutEnactus': aboutEnactus,
-               'projects': projects, 'contact': contact,
-               'welcome': welcome, 'form': form}
+               'projects': projects, 'contact': contact, 'team': team,
+               'welcome': welcome, 'form': form, 'gallery': gallery}
 
     # if request.method == 'POST':
     # message = request.POST['message']
@@ -46,18 +48,25 @@ def home(request):
 
 def projects(request):
     projects = Projects.objects.all()
-    context = {'projects': projects}
+    contact = Contact.objects.get(id=1)
+    context = {'projects': projects, 'contact': contact}
 
     return render(request, 'projects.html', context)
 
 
-def gallerry(request):
-    gallerry = Gallerry.objects.all()
-    context = {'gallerry': gallerry}
+def our_team(request):
+    team = AcademicAdvisors.objects.all()
+    contact = Contact.objects.get(id=1)
+    context = {'team': team, 'contact': contact}
 
-    return render(request, 'gallerry.html', context)
+    return render(request, 'team.html', context)
 
 
-# def render_projects(request):
-#     projects = AboutEnactus.objects.all()
-#     return render(request, 'projects.html', {'projects': projects})
+def gallery(request):
+    gallery = Gallery.objects.all()
+    contact = Contact.objects.get(id=1)
+    context = {'gallery': gallery, 'contact': contact}
+
+    return render(request, 'gallery.html', context)
+
+    

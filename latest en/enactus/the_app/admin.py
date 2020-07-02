@@ -15,7 +15,7 @@ class ProjectAdminForm(forms.ModelForm):
     description_ru = forms.CharField(
         label="Описание", widget=CKEditorUploadingWidget())
     description_en = forms.CharField(
-        label="Описание", widget=CKEditorUploadingWidget())
+        label="Description", widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Projects
@@ -24,16 +24,27 @@ class ProjectAdminForm(forms.ModelForm):
 
 # admin.site.register(Welcome)
 admin.site.register(Message)
-admin.site.register(Gallerry)
+admin.site.register(Gallery)
 # admin.site.register(AcademicAdvisors)
 # admin.site.register(Contact)
 admin.site.register(Partners)
 
 
-@admin.register(AboutEnactus)
-class AboutEnactusAdmin(TranslationAdmin):
-    list_display = ("title",)
-    list_display_links = ("title",)
+class AboutEnactusAdminForm(forms.ModelForm):
+    """Форма с виджетом ckeditor"""
+    text_ru = forms.CharField(
+        label="text_ru", widget=CKEditorUploadingWidget())
+    text_en = forms.CharField(
+        label="text_en", widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = AboutEnactus
+        fields = '__all__'
+
+# @admin.register(AboutEnactus)
+# class AboutEnactusAdmin(TranslationAdmin):
+#     list_display = ("title",)
+#     list_display_links = ("title",)
 
     # readonly_fields = ("get_image",)
 
@@ -50,7 +61,7 @@ class AboutEnactusAdmin(TranslationAdmin):
 class ContactAdmin(TranslationAdmin):
 
     class Meta:
-        model = Projects
+        model = Contact
         fields = '__all__'
 
 
@@ -67,6 +78,13 @@ class ProjectsAdmin(TranslationAdmin):
     list_display = ("name",)
     form = ProjectAdminForm
 
+@admin.register(AboutEnactus)
+class AboutEnactusAdmin(TranslationAdmin):
+    list_display = ("title",)
+    form = AboutEnactusAdminForm
+    # class Meta:
+    #     model = AboutEnactus
+    #     fields = '__all__'
 
 @admin.register(AcademicAdvisors)
 class AcademicAdvisorsAdmin(TranslationAdmin):

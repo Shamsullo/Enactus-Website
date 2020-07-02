@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+{% load static from static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% trans 'Enactus AUCA | Gallery' %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static '/images/favicon.png' %}" />
+
+    <meta name="keywords"
+        content="Enactus AUCA, American University of Central Asia, Enactus, Bishkek, Business and Youth, CCIS, Entrepreneurship" />
+    <meta name="author" content="Enactus AUCA" />
+    <meta name="description"
+        content="We are a community of students, professors and business leaders who take an entrepreneurial approach to transforming life and creating a better world."/>
+    <meta property="og:description"
+        content="We are a community of students, professors and business leaders who take an entrepreneurial approach to transforming life and creating a better world." />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+
+    <!-- <link href="https://cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" />
+
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              <a class="navbar-brand" href="/">
+                  <img src="{% static '/images/AUCA-logo.png' %}" />
+              </a>
+          </div>
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/">{% trans 'Home' %}</a></li>
+                  <li><a class="nav-link" href="/#mission">{% trans 'About Us' %}</a></li>
+                  <li><a class="nav-link" href="/advisors">{% trans 'Advisors' %}</a></li>
+                  <li><a class="nav-link" href="/projects">{% trans 'Projects' %}</a></li>
+                  <li><a class="nav-link" href="/gallery">{% trans 'Gallery' %}</a></li>
+
+                  {% if LANGUAGE_CODE == "en" %}
+                  <li><a  style="color: royalblue;" href="/ru{{ request.get_full_path |slice:'3:'}}">РУС</a></li>
+                  {% else %}
+                  <li><a style="color: royalblue;" href="/en{{ request.get_full_path |slice:'3:'}}">ENG</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+      </div>
+  </div>
+  <!-- /*  NAV BAR */ -->
+  <style>
+      .navbar li a {
+          text-transform: uppercase;
+      }
+      .languages{
+          padding-top: 20px;
+      }
+
+      .navbar {
+          font-weight: 800;
+          font-size: 14px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      .navbar-inverse {
+          background: #0f1f35;
+      }
+      .navbar-inverse .navbar-nav > li > a {
+          letter-spacing: 0.5px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          color: rgb(255, 218, 9);
+      
+      }
+      .navbar-inverse .navbar-nav > .active > a {
+          background: #009897;
+      }
+      .navbar-inverse .navbar-nav > .active > a:hover,
+      .navbar-inverse .navbar-nav > .active > a:focus {
+          background: yellow;
+          color: #0f1f35;
+      }
+
+
+      .navbar-inverse .navbar-brand {
+          color: #999999;
+          font-weight: bolder;
+          font-size: 22px;
+          letter-spacing: 1px;
+          padding: 0;
+          height: 30px;
+      }
+
+      .navbar-inverse .navbar-brand img {
+          width: 100px;
+          height: auto;
+          /* margin-top: 10px; */
+          padding-bottom: 10px;
+          position:absolute;
+      }
+      @media screen and (max-width: 768px) {
+          .navbar-inverse .navbar-brand img {
+              margin-left: 25px;
+          }
+          .navbar .container{
+              text-align: center;
+          }
+
+      }
+  </style>
+
+  <div class="banner" class="contact-header">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2>Photos</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner style -->
+<style> 
+.banner {
+    background: #009897;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin-top: 65px;
+  }
+  .banner h2 {
+    color: #fff;
+    font-size: 32px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    .banner h2 {
+      line-height: 42px;
+    }
+  }
+</style>
+
+  <div id="gallery">
+    <div class="container">
+      <div class="row centered">
+       <br>
+       <br>
+        {% for photo_in_gallery in gallery %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a class="gallery-item" data-lightbox="mygallery" href="{{ photo_in_gallery.photo.url }}">
+            <img class="cover" src="{{ photo_in_gallery.photo.url }}" alt="photo from the projects" >
+          </a>
+        </div>
+        {% endfor %}
+        
+        <br>
+        <br>
+    </div>
+  </div>
+</div>
+
+<!-- Galerry Style -->
+<style>/* ============================ GALLERY ============================= */
+  #gallery .container {
+    padding: 0 0 50px;
+    width: 80%;
+  }
+  #gallery .col-lg-3, #gallery .col-md-3, #gallery .col-sm-3 {
+    margin: 10px auto;
+  }
+  #gallery a.gallery-item {
+    height: 250px;
+    max-height: 250px;
+  }
+  #gallery img {
+    cursor:auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+  #gallery img.cover {
+    object-fit: cover;
+    height: 180px;
+  }
+
+  #gallery img:hover {
+    transform: scale(1.1);
+  }
+  @media screen and (max-width: 990px) {
+    #gallery img.cover {
+      object-fit: cover;
+      height: 210px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    #gallery img.cover {
+      object-fit: cover;
+      height: 100%;
+      margin: 15px auto;
+    }
+  }
+</style>
+    
+<div id="footer">
+  <div class="container">
+      <div class="row">
+          <br>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+              <!-- <h4>Upcoming events</h4> -->
+              <img style=" object-fit: cover;
+              height: 150px;" 
+              src="{% static '/images/full-white-logo.png' %}" alt="photos in carousel" >
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4">
+              <!-- <h4>Connect With Us</h4> -->
+              <!-- <h6>}</h6> -->
+              <i class="fa fa-home" style="font-size: 22px;">   {{ contact.address }}</i>
+              <i class="fa fa-envelope" style="font-size: 22px;">   ecantus@auca.kg</i>
+              <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num1 }}</i>
+              {% if contact.phone_num2 != '' %}
+              <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num2 }}</i><br>
+              {% endif %}
+              {% if contact.phone_num3 != '' %}
+              <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num3 }}</i><br>   
+              {% endif %}
+              <!-- <a href="{{ contact.fb_link }}" target="_blank"><i class="fa fa-facebook-official"></i></a> -->
+              <!-- <a href="{{ contact.insta_link }}" target="_blank"><i class="fa fa-instagram"></i></a> -->
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4">
+              <!-- <h4 style="font-weight: 600;">Enactus in Social Net</h4> -->
+              <a href="{{ contact.fb_link }}" target="_blank"><i class="fa fa-facebook-official"></i></a>
+              <a href="{{ contact.insta_link }}" target="_blank"><i class="fa fa-instagram"></i></a>
+              <!-- <i class="fa fa-envelope">example@gmail.com</i> -->
+              <br>
+              <p style="padding-top: 15px;">{% trans 'This website is designed and developted by:' %} <br>
+                  <a href="https://www.facebook.com/profile.php?id=100004123323037" target="blank">
+                      <i class="fa fa-facebook-official" style="font-size: 18px;"></i>Shams Ismatov</a>
+                  </a>
+                  <a href="https://www.instagram.com/aintisaa/" target="blank">
+                      <i class="fa fa-instagram" style="font-size: 18px;"></i>Isa Orunbaev</a>
+                  </a>
+              </p>    
+              <p class="copyright">&copy; Enactus AUCA 2020</p>
+          </div>
+      </div>
+      <br>
+  </div>
+</div>
+<!-- FOOTER STYLE -->
+<style>
+  /* ============================ FOOTER ============================= */
+  #footer {
+      background: #0f1f35;
+      color: #0f1f35;
+
+  }
+  #footer .container {
+      width: 80%;
+  }
+  @media screen and (max-width: 1080px) {
+  #footer .container {
+      width: 90%;
+  }
+  }
+  #footer p {
+      color: #aaa;
+      text-align: left;
+      margin-bottom: 10px;
+      font-weight: 500;
+  }
+  #footer .copyright {
+      /* text-align: right; */
+      font-size: 14px;
+      color: #777;
+  }
+  #footer form {
+      border: 2px solid #009897;
+      display: table;
+      width: 100%;
+      max-width: 300px;
+  }
+  #footer i {
+      color: #bdbdbd;
+      font-size: 30px;
+      padding: 10px;
+      -webkit-transition: all .3s ease-in-out;
+      -moz-transition: all .3s ease-in-out;
+      -o-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+  }
+  #footer i.fa-facebook-official {
+      padding-left: 3px;
+  }
+  #footer i.fa-heart {
+      font-size: 16px;
+      padding: 0 10px 5px;
+  }
+  #footer i:hover,
+  #footer i:focus {
+   color: #009897;
+  }
+  #footer ul {
+      list-style: none;
+      text-align: left;
+      padding-left: 0;
+  }
+  #footer ul li a {
+      font-weight: 500;
+  }
+  #footer ul li a:hover,
+  #footer ul li a:focus {
+      color: #00b7b4;
+  }
+  #footer .ccis-logo {
+      width: 200px;
+      -webkit-filter: brightness(0) invert(0.7);
+      filter: brightness(0) invert(0.7);
+  }
+  @media screen and (max-width: 768px) {
+      #footer h4 {
+          margin-top: 30px;
+      }
+  }
+  @media screen and (max-width: 480px) {
+      #footer .container {
+          width: 85%;
+      }
+  }
+</style>
+
+
+    <!-- JS -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- <script src="/js/main.js"></script> -->
+<script src="{% static 'js/lightbox-plus-jquery.min.js' %}"></script>
+
+  </body>
+</html>

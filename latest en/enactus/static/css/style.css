@@ -1,5 +1,5 @@
 
-html, body {
+/* html, body {
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
@@ -52,158 +52,66 @@ html, body {
   }
   button:focus {
     outline: 0 !important;
-  }
+  } */
 
-/* ============================ NAVBAR ============================= */
+  <!-- /*  NAV BAR */ -->
+  
+      .navbar li a {
+          text-transform: uppercase;
+      }
+  
+      .navbar {
+          font-weight: 800;
+          font-size: 14px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+      }
+      .navbar-inverse {
+          background: #0f1f35;
+          /* border-color: #0f1f35; */
+      }
+      .navbar-inverse .navbar-nav > li > a {
+          letter-spacing: 0.5px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          color: rgb(255, 218, 9);
+      
+      }
+      .navbar-inverse .navbar-nav > .active > a {
+          background: #009897;
+      }
+      .navbar-inverse .navbar-nav > .active > a:hover,
+      .navbar-inverse .navbar-nav > .active > a:focus {
+          background: yellow;
+          color: #0f1f35;
+      }
+  
+  
+      .navbar-inverse .navbar-brand {
+          color: #999999;
+          font-weight: bolder;
+          font-size: 22px;
+          letter-spacing: 1px;
+          padding: 0;
+          height: 30px;
+      }
+  
+      .navbar-inverse .navbar-brand img {
+          width: 100px;
+          height: auto;
+          /* margin-top: 10px; */
+          padding-bottom: 10px;
+          position:absolute;
+      }
+      @media screen and (max-width: 768px) {
+          .navbar-inverse .navbar-brand img {
+              /* margin-top: 13px; */
+              margin-left: 25px;
+              /* padding-bottom: 10px; */
+          }
+          .navbar {
+              padding-bottom: 20px;
+          }
+      }
 
-.navbar li a {
-    text-transform: uppercase;
-  }
   
-  .navbar {
-    font-weight: 800;
-    font-size: 14px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .navbar-inverse {
-    background: #444444;
-    border-color: #2d2d2d;
-  }
-  .navbar-inverse .navbar-nav > li > a {
-    letter-spacing: 0.5px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  .navbar-inverse .navbar-nav > .active > a {
-    background: #009897;
-  }
-  .navbar-inverse .navbar-nav > .active > a:hover,
-  .navbar-inverse .navbar-nav > .active > a:focus {
-    background: #00b7b4;
-  }
-  
-  .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-    background: #009897;
-  }
-  
-  .dropdown-menu {
-    background: #2d2d2d;
-    border-color: #2d2d2d;
-  }
-  
-  .dropdown-menu>li>a {
-    color:#9d9d9d;
-    font-weight:bold;
-  }
-  
-  .dropdown-menu>li>a:hover {
-    color:white;
-    background:inherit;
-  }
-  
-  .navbar-inverse .navbar-brand {
-    color: #999999;
-    font-weight: bolder;
-    font-size: 22px;
-    letter-spacing: 1px;
-    padding: 0;
-    height: 30px;
-  }
-  .navbar-inverse .navbar-brand img {
-    width: 120px;
-    height: auto;
-    margin-top: 10px;
-  }
-  @media screen and (max-width: 768px) {
-    .navbar-inverse .navbar-brand img {
-      margin-top: 13px;
-      margin-left: 25px;
-    }
-  }
-  
-
-  /* ============================ FOOTER ============================= */
-
-#footer {
-    background: #444444;
-    color: #444444;
-  }
-  #footer .container {
-    width: 75%;
-  }
-  @media screen and (max-width: 1080px) {
-    #footer .container {
-      width: 90%;
-    }
-  }
-  #footer h4 {
-    color: #f0f0f0;
-    text-align: left;
-    font-size: 18px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  #footer p {
-    color: #aaa;
-    text-align: left;
-    margin-bottom: 10px;
-    font-weight: 500;
-  }
-  #footer .copyright {
-    font-size: 14px;
-    color: #777;
-  }
-  #footer form {
-    border: 2px solid #009897;
-    display: table;
-    width: 100%;
-    max-width: 300px;
-  }
-  #footer i {
-    color: #bdbdbd;
-    font-size: 30px;
-    padding: 10px;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-  }
-  #footer i.fa-facebook-official {
-    padding-left: 3px;
-  }
-  #footer i.fa-heart {
-    font-size: 16px;
-    padding: 0 10px 5px;
-  }
-  #footer i:hover,
-  #footer i:focus {
-    color: #009897;
-  }
-  #footer ul {
-    list-style: none;
-    text-align: left;
-    padding-left: 0;
-  }
-  #footer ul li a {
-    font-weight: 500;
-  }
-  #footer ul li a:hover,
-  #footer ul li a:focus {
-    color: #00b7b4;
-  }
-  #footer .ccis-logo {
-    width: 200px;
-    -webkit-filter: brightness(0) invert(0.7);
-    filter: brightness(0) invert(0.7);
-  }
-  @media screen and (max-width: 768px) {
-    #footer h4 {
-      margin-top: 30px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    #footer .container {
-      width: 85%;
-    }
-  }

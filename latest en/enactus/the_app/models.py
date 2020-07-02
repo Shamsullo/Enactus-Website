@@ -21,7 +21,7 @@ class AboutEnactus(models.Model):
         return self.title
 
 
-class Gallerry(models.Model):
+class Gallery(models.Model):
     photo = models.ImageField(upload_to='gallerry/')
     caption = models.CharField(max_length=100)
 
@@ -31,6 +31,7 @@ class Gallerry(models.Model):
 
 class Projects(models.Model):
     name = models.CharField(max_length=100)
+    short_desc = models.CharField(max_length=200)
     description = models.TextField()
     photo1 = models.ImageField(upload_to='project')
     photo2 = models.ImageField(upload_to='project', blank=True)
