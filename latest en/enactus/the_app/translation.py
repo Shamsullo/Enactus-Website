@@ -20,7 +20,7 @@ class AboutEnactusTranslationOptions(TranslationOptions):
 
 @register(Projects)
 class ProjectsTranslationOptions(TranslationOptions):
-    fields = ('name', 'description')
+    fields = ('name', 'short_desc', 'description')
 
 
 @register(AcademicAdvisors)

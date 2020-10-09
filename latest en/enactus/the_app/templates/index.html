@@ -1,177 +1,11 @@
+{% extends "base.html" %}
+
 {% load static %}
 {% load i18n %}
 
 {% get_current_language as LANGUAGE_CODE %}
 
-<!DOCTYPE html>
-<html class="no-js"  style="min-height: 100vh;">
-
-
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{% trans 'Enactus AUCA' %}</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="{% static '/images/favicon.png' %}" />
-
-    <meta name="keywords"
-        content="Enactus AUCA, American University of Central Asia, Enactus, Bishkek, Business and Youth, CCIS, Entrepreneurship" />
-    <meta name="author" content="Enactus AUCA" />
-    <meta name="description"
-        content="We are a community of students, professors and business leaders who take an entrepreneurial approach to transforming life and creating a better world."/>
-    <meta property="og:description"
-        content="We are a community of students, professors and business leaders who take an entrepreneurial approach to transforming life and creating a better world." />
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
-
-    <link href="https://cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" />
-    
-    <link rel="stylesheet" href="{% static 'css/OwlCarousel/owl.carousel.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/OwlCarousel/owl.theme.default.min.css' %}" />
-
-    <!-- <link rel="stylesheet" href="{% static 'css/main1.css' %}" /> -->
-
-</head>
-
-<body>
-    <!-- general style -->
-    <style>
-        html, body {
-    padding: 0;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: 'Lato', Helvetica, sans-serif;
-  }
-  body {
-    background-color: #e0e0e0;
-    font-size: 16px;
-    /* color: #555; */
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-  }
-  .centered {
-    text-align: center;
-  }
-  a {
-    color: #009897;
-    word-wrap: break-word;
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-  }
-  a:hover, a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
-  }
-  a:before, a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-  }
-
-  button:focus {
-    outline: 0 !important;
-  }
-    </style>
-
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                <a class="navbar-brand" href="/">
-                    <img src="{% static '/images/AUCA-logo.png' %}" />
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">{% trans 'Home' %}</a></li>
-                    <li><a class="nav-link" href="/#mission">{% trans 'About Us' %}</a></li>
-                    <li><a class="nav-link" href="/advisors">{% trans 'Advisors' %}</a></li>
-                    <li><a class="nav-link" href="/projects">{% trans 'Projects' %}</a></li>
-                    <li><a class="nav-link" href="/gallery">{% trans 'Gallery' %}</a></li>
-
-                    {% if LANGUAGE_CODE == "en" %}
-                    <li><a  style="color: royalblue;" href="/ru{{ request.get_full_path |slice:'3:'}}">РУС</a></li>
-                    {% else %}
-                    <li><a style="color: royalblue;" href="/en{{ request.get_full_path |slice:'3:'}}">ENG</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /*  NAV BAR */ -->
-    <style>
-        .navbar li a {
-            text-transform: uppercase;
-        }
-        .languages{
-            padding-top: 20px;
-        }
-
-        .navbar {
-            font-weight: 800;
-            font-size: 14px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        .navbar-inverse {
-            background: #0f1f35;
-        }
-        .navbar-inverse .navbar-nav > li > a {
-            letter-spacing: 0.5px;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            color: rgb(255, 218, 9);
-        
-        }
-        .navbar-inverse .navbar-nav > .active > a {
-            background: #009897;
-        }
-        .navbar-inverse .navbar-nav > .active > a:hover,
-        .navbar-inverse .navbar-nav > .active > a:focus {
-            background: yellow;
-            color: #0f1f35;
-        }
-
-
-        .navbar-inverse .navbar-brand {
-            color: #999999;
-            font-weight: bolder;
-            font-size: 22px;
-            letter-spacing: 1px;
-            padding: 0;
-            height: 30px;
-        }
-
-        .navbar-inverse .navbar-brand img {
-            width: 100px;
-            height: auto;
-            /* margin-top: 10px; */
-            padding-bottom: 10px;
-            position:absolute;
-        }
-        @media screen and (max-width: 768px) {
-            .navbar-inverse .navbar-brand img {
-                margin-left: 25px;
-            }
-            .navbar .container{
-                text-align: center;
-            }
-
-        }
-    </style>
+{% block content %}
 
     <div id="headerwrap">
         <div class="container text-center">
@@ -333,278 +167,277 @@
             {% endfor %}
         </div>
     </div>
+
     <!-- MISSION STYLE -->
     <style>
         /* ======================== MISSION STATEMENT ========================== */
-#mission {
-    padding-top: 20px;
-  background: #e0e0e0;
-  /* width: 100%; */
-}
-#mission .container {
-  background: #e0e0e0;
-  padding: 70px 0;
-  /* text-align: center; */
-}
-@media screen and (max-width: 768px) {
-  #mission .container {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-}
-@media screen and (max-width: 480px) {
-  #mission .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-#mission h2 {
-  font-size: 40px;
-  margin: 0 auto 30px;
-  text-align: center;
-}
-#mission p {
-  /* max-width: 150%; */
-  font-size: 18px;
-  font-weight: 400;
-  color: #0f1f35;
-  line-height: 1.5;
-  margin: 0 auto;
-  /* padding: 0 15px; */
-}
-</style>
+        #mission {
+            padding-top: 20px;
+            /* background: #e0e0e0; */
+            /* width: 100%; */
+        }
+        #mission .container {
+            /* background: #e0e0e0; */
+            padding: 70px 0;
+            /* text-align: center; */
+        }
+        @media screen and (max-width: 768px) {
+            #mission .container {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            #mission .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        #mission h2 {
+            font-size: 50px;
+            font-weight: 600;
+            margin: 0 auto 30px;
+            text-align: center;
+            color: black;
+        }
+        #mission p {
+            /* max-width: 150%; */
+            font-size: 18px;
+            font-weight: 400;
+            color: #0f1f35;
+            line-height: 1.5;
+            margin: 0 auto;
+            /* padding: 0 15px; */
+        }
+    </style>
 
+    <!-- Projects -->
+    <div class="container" style="margin-bottom: 50px;">
+        <h2 style="font-size: 50px; font-weight: 600; margin-top: 100px; text-align: center;">Our Projects</h2>
+        <span class="team-border" style="margin-bottom: 5rem;"></span>
 
-<div class="container" style="margin-bottom: 50px;">
-    <h2 style="font-size: 40px; margin-top: 100px; text-align: center;">Our Projects</h2>
-    <span class="team-border"></span>
+        {% for project in projects %}
 
-    {% for project in projects %}
-
-        <div class="col-md-4" style="padding-left: 5rem; padding-right: 0;">
-    
-            <div class="card" style="width: 30rem;">
-                <img class="card-img-top" style="width:30rem; height: 20rem;" src="{{ project.photo1.url }}" alt="Card image cap">
-                <div class="card-body">
-                  <h2 class="card-title">{{project.name}}</h2>
-                  <p class="card-text">{{project.short_desc | safe}}</p>
-                  <a href="/projects" class="btn btn-primary">More..</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-</div>
-
-	<section id="resume">
-    <div class="text-center">
-        <div class="overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>To learn more about our projects</h2>
-                        <div id="resume-button">
-                            <a class="resume-btn wp4" href="/projects" class="btn-default">Click here</a>
-                        </div>
+            <div class="col-md-4" style="padding-left: 5rem; padding-right: 0;">
+        
+                <div class="card" style="width: 30rem;">
+                    <img class="card-img-top" style="width:30rem; height: 20rem;" src="{{ project.photo1.url }}" alt="Card image cap">
+                    <div class="card-body">
+                    <h2 class="card-title">{{project.name}}</h2>
+                    <p class="card-text">{{project.short_desc | safe}}</p>
+                    <a href="/projects" class="btn btn-primary">More..</a>
                     </div>
                 </div>
-                <!-- row -->
             </div>
-            <!-- container -->
+            {% endfor %}
+    </div>
+    <section id="resume">
+        <div class="text-center">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>To learn more about our projects</h2>
+                            <div id="resume-button">
+                                <a class="resume-btn wp4" href="/projects" class="btn-default">Click here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+        </div>
+    </section>
+    <style type="text/css">
+        #resume {
+        background: url("{% static '/images/projects.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-color: #000;
+        color: #fff;
+    }
+
+    #resume .overlay {
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.8)), color-stop(17%, rgba(0, 0, 0, 0.73)), color-stop(35%, rgba(0, 0, 0, 0.66)), color-stop(62%, rgba(0, 0, 0, 0.55)), color-stop(100%, rgba(0, 0, 0, 0.4)));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
+        /* IE10+ */
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
+        /* W3C */
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#66000000', GradientType=0);
+        /* IE6-9 */
+        padding: 80px 0;
+        background-attachment: fixed;
+    }
+
+    #resume h2 {
+        color: #fff;
+    }
+
+    a.resume-btn {
+        background: none;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #ddd;
+        border: 2px solid #ccc;
+        font-family: "Lato", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        text-decoration: none;
+        letter-spacing: 1px;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out
+    }
+
+    a.resume-btn:hover,
+    a.resume-btn:active {
+        /*background-position: -100% 100%;*/
+        color: #fff;
+        /*font-weight: 400;*/
+        border: 2px solid #ccc;
+        background-color: rgba(254, 254, 254, 0.2);
+        padding: 10px 30px;
+    }
+
+    </style>
+
+    <!-- Our Team -->
+    <div class="container officers">
+        <h2 style="font-size: 40px;">Our Academic Advisors</h2>
+        <span class="team-border"></span>
+
+        <div class="centered">
+            {% for officer in team %}    
+            <div class="col-lg-3 col-md-3 col-sm-6 officer">
+                <div class="avatar-container" href="#michelleModal" data-toggle="modal">
+                    <img class="img-circle" src="{{ officer.photo.url }}" />
+                    <h3>{{ officer.f_name }} {{ officer.l_name }}</h3>
+                    <h4>{{ officer.position }}</h4>
+                </div>
+                <p>
+                    {% if officer.email != '' %}
+                    <a href="mailto:{{ officer.email }}">
+                    <i class="fa fa-envelope"></i>
+                    </a>
+                    {% endif %}
+                    {% if officer.linkedin != '' %}
+                    <a href="{{ officer.linkedin }}">
+                    <i class="fa fa-linkedin"></i>
+                    </a>
+                    {% endif %}
+                    {% if officer.fb != '' %}
+                    <a href="{{ officer.fb }}">
+                    <i class="fa fa-facebook-official"></i>
+                    </a>
+                    {% endif %} 
+                    {% if officer.insta != '' %}
+                    <a href="{{ officer.insta }}">
+                    <i class="fa fa-instagram"></i>
+                    </a>
+                    {% endif %}
+                </p>
+            </div>
+        {% endfor %}
         </div>
     </div>
-</section>
-<style type="text/css">
-	#resume {
-    background: url("{% static '/images/projects.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #000;
-    color: #fff;
-}
 
-#resume .overlay {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.8)), color-stop(17%, rgba(0, 0, 0, 0.73)), color-stop(35%, rgba(0, 0, 0, 0.66)), color-stop(62%, rgba(0, 0, 0, 0.55)), color-stop(100%, rgba(0, 0, 0, 0.4)));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
-    /* W3C */
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#66000000', GradientType=0);
-    /* IE6-9 */
-    padding: 80px 0;
-    background-attachment: fixed;
-}
+    <span class="team-border2"></span>
+    <style>/* ============================ OFFICERS ============================= */
+        .team-border{
+            display: block;
+            margin: auto;
+            width: 200px;
+            height: 4px;
+            background: rgb(238, 214, 0);
+            border-radius: 30;
+            margin-bottom: 4rem;
+        }
+        .team-border2{
+            display: block;
+            margin: auto;
+            width: 200px;
+            height: 5px;
+            background: rgb(238, 214, 0);
+            border-radius: 30;
+            margin-bottom: 100px;
+        }
 
-#resume h2 {
-    color: #fff;
-}
+        .officers {
+            padding: 100px 15%;
+            margin-bottom: 0px;
+            padding-bottom: 5rem;
+            background: #f1efef;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+        }
+        .officers h3 {
+            margin-top: 0;
+            padding-top: 0;
+            font-weight: 700;
+        }
+        .officers h4 {
+            font-weight: 500;
+            font-family: 'Lato', sans-serif;
+        }
+        .officers i {
+            color: #777;
+            font-size: 20px;
+            margin: 0 5px;
+        }
+        .officers i:hover,
+        .officers i:focus {
+            color: #0f1f35;
+        }
+        .officers .img-circle {
+            margin: 25px 20px 10px;
+            width: 170px;
+            height: 170px;
+            transition: all .2s ease-in-out;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+        }
+        .officers .officer {
+            cursor: pointer;
+            height: 320px;
+            align-items: center;
+        }
+        .officers .officer-avatar {
+            overflow: hidden;
+        }
+        .officers .officer:hover,
+        .officers .officer:focus {
+            background: #fdfdfd;
+        }
+        .officers .officer:hover .img-circle,
+        .officers .officer:focus .img-circle {
+            transform: scale(1.05);
+        }
 
-a.resume-btn {
-    background: none;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ddd;
-    border: 2px solid #ccc;
-    font-family: "Lato", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    text-decoration: none;
-    letter-spacing: 1px;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-a.resume-btn:hover,
-a.resume-btn:active {
-    /*background-position: -100% 100%;*/
-    color: #fff;
-    /*font-weight: 400;*/
-    border: 2px solid #ccc;
-    background-color: rgba(254, 254, 254, 0.2);
-    padding: 10px 30px;
-}
-
-</style>
-
-
-
-<div class="container officers">
-    <h2 style="font-size: 40px;">Our Academic Advisors</h2>
-    <span class="team-border"></span>
-
-    <div class="centered">
-        {% for officer in team %}    
-        <div class="col-lg-3 col-md-3 col-sm-6 officer">
-            <div class="avatar-container" href="#michelleModal" data-toggle="modal">
-                <img class="img-circle" src="{{ officer.photo.url }}" />
-                <h3>{{ officer.f_name }} {{ officer.l_name }}</h3>
-                <h4>{{ officer.position }}</h4>
-            </div>
-            <p>
-                {% if officer.email != '' %}
-                <a href="mailto:{{ officer.email }}">
-                <i class="fa fa-envelope"></i>
-                </a>
-                {% endif %}
-                {% if officer.linkedin != '' %}
-                <a href="{{ officer.linkedin }}">
-                <i class="fa fa-linkedin"></i>
-                </a>
-                {% endif %}
-                {% if officer.fb != '' %}
-                <a href="{{ officer.fb }}">
-                <i class="fa fa-facebook-official"></i>
-                </a>
-                {% endif %} 
-                 {% if officer.insta != '' %}
-                <a href="{{ officer.insta }}">
-                <i class="fa fa-instagram"></i>
-                </a>
-                {% endif %}
-            </p>
-        </div>
-      {% endfor %}
-    </div>
-</div>
-
-
-<span class="team-border2"></span>
-<!-- team style -->
-<style>/* ============================ OFFICERS ============================= */
-    .team-border{
-        display: block;
-        margin: auto;
-        width: 200px;
-        height: 4px;
-        background: rgb(238, 214, 0);
-        border-radius: 30;
-        margin-bottom: 30px;
-    }
-    .team-border2{
-        display: block;
-        margin: auto;
-        width: 200px;
-        height: 5px;
-        background: rgb(238, 214, 0);
-        border-radius: 30;
-        margin-bottom: 100px;
-    }
-
-    .officers {
-        padding: 100px 15%;
-        margin-bottom: 0px;
-        padding-bottom: 30px;
-        background: #e0e0e0;
-        width: 100%;
-        text-align: center;
-        align-items: center;
-    }
-    .officers h3 {
-        margin-top: 0;
-        padding-top: 0;
-      font-weight: 700;
-    }
-    .officers h4 {
+        .officers h5 {
         font-weight: 500;
-      font-family: 'Lato', sans-serif;
-    }
-    .officers i {
-      color: #777;
-      font-size: 20px;
-      margin: 0 5px;
-    }
-    .officers i:hover,
-    .officers i:focus {
-      color: #0f1f35;
-    }
-    .officers .img-circle {
-      margin: 25px 20px 10px;
-      width: 170px;
-      height: 170px;
-      transition: all .2s ease-in-out;
-      object-fit: cover;
-      border: 5px solid #ffffff;
-    }
-    .officers .officer {
-      cursor: pointer;
-      height: 320px;
-      align-items: center;
-    }
-    .officers .officer-avatar {
-      overflow: hidden;
-    }
-    .officers .officer:hover,
-    .officers .officer:focus {
-      background: #f2f2f2;
-    }
-    .officers .officer:hover .img-circle,
-    .officers .officer:focus .img-circle {
-      transform: scale(1.05);
-    }
-
-    .officers h5 {
-      font-weight: 500;
-      font-family: 'Lato', sans-serif;
-    }
-    @media screen and (max-width: 768px) {
-      .officers i {
-        margin-bottom: 20px;
-      }
-    }
-    
-</style>
+        font-family: 'Lato', sans-serif;
+        }
+        @media screen and (max-width: 768px) {
+        .officers i {
+            margin-bottom: 20px;
+        }
+        }
+        
+    </style>
 
 
-
+<!-- Message Form -->
     <div id="subscribe">
         <div class="container">
             <div class="row centered">
@@ -878,170 +711,5 @@ a.resume-btn:active {
         </style>
     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afc3959f29a25a2ccab7d73c1b3f7ef5de5d663589f71eb0634733870138f2747&amp;width=100%25&amp;height=200&amp;lang=ru_RU&amp;scroll=true"></script>
 
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <br>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <!-- <h4>Upcoming events</h4> -->
-                    <img style=" object-fit: cover;
-                    height: 150px;" 
-                    src="{% static '/images/full-white-logo.png' %}" alt="photos in carousel" >
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <!-- <h4>Connect With Us</h4> -->
-                    <!-- <h6>}</h6> -->
-                    <i class="fa fa-home" style="font-size: 22px;">   {{ contact.address }}</i>
-                    <i class="fa fa-envelope" style="font-size: 22px;">   ecantus@auca.kg</i>
-                    <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num1 }}</i>
-                    {% if contact.phone_num2 != '' %}
-                    <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num2 }}</i><br>
-                    {% endif %}
-                    {% if contact.phone_num3 != '' %}
-                    <i class="fa fa-phone" style="font-size: 22px;">  {{ contact.phone_num3 }}</i><br>   
-                    {% endif %}
-                    <!-- <a href="{{ contact.fb_link }}" target="_blank"><i class="fa fa-facebook-official"></i></a> -->
-                    <!-- <a href="{{ contact.insta_link }}" target="_blank"><i class="fa fa-instagram"></i></a> -->
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <!-- <h4 style="font-weight: 600;">Enactus in Social Net</h4> -->
-                    <a href="{{ contact.fb_link }}" target="_blank"><i class="fa fa-facebook-official"></i></a>
-                    <a href="{{ contact.insta_link }}" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <!-- <i class="fa fa-envelope">example@gmail.com</i> -->
-                    <br>
-                    <p style="padding-top: 15px;">{% trans 'This website is designed and developted by:' %} <br>
-                        <a href="https://www.facebook.com/profile.php?id=100004123323037" target="blank">
-                            <i class="fa fa-facebook-official" style="font-size: 18px;"></i>Shams Ismatov</a>
-                        </a>
-                        <a href="https://www.instagram.com/aintisaa/" target="blank">
-                            <i class="fa fa-instagram" style="font-size: 18px;"></i>Isa Orunbaev</a>
-                        </a>
-                    </p>    
-                    <p class="copyright">&copy; Enactus AUCA 2020</p>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-    <!-- FOOTER STYLE -->
-    <style>
-        /* ============================ FOOTER ============================= */
-        #footer {
-            background: #0f1f35;
-            color: #0f1f35;
-
-        }
-        #footer .container {
-            width: 80%;
-        }
-        @media screen and (max-width: 1080px) {
-        #footer .container {
-            width: 90%;
-        }
-        }
-        #footer p {
-            color: #aaa;
-            text-align: left;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        #footer .copyright {
-            /* text-align: right; */
-            font-size: 14px;
-            color: #777;
-        }
-        #footer form {
-            border: 2px solid #009897;
-            display: table;
-            width: 100%;
-            max-width: 300px;
-        }
-        #footer i {
-            color: #bdbdbd;
-            font-size: 30px;
-            padding: 10px;
-            -webkit-transition: all .3s ease-in-out;
-            -moz-transition: all .3s ease-in-out;
-            -o-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out;
-        }
-        #footer i.fa-facebook-official {
-            padding-left: 3px;
-        }
-        #footer i.fa-heart {
-            font-size: 16px;
-            padding: 0 10px 5px;
-        }
-        #footer i:hover,
-        #footer i:focus {
-         color: #009897;
-        }
-        #footer ul {
-            list-style: none;
-            text-align: left;
-            padding-left: 0;
-        }
-        #footer ul li a {
-            font-weight: 500;
-        }
-        #footer ul li a:hover,
-        #footer ul li a:focus {
-            color: #00b7b4;
-        }
-        #footer .ccis-logo {
-            width: 200px;
-            -webkit-filter: brightness(0) invert(0.7);
-            filter: brightness(0) invert(0.7);
-        }
-        @media screen and (max-width: 768px) {
-            #footer h4 {
-                margin-top: 30px;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            #footer .container {
-                width: 85%;
-            }
-        }
-    </style>
-
-
-
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
-    <script src="{% static '/js/owl.carousel.min.js' %}"></script>
-
-    <!-- <script src="{% static '/js/main.js' %}"></script> -->
-    <script>
-        $('.owl-carousel').owlCarousel({
-            loop:true,
-            autoplay:true,
-            autoplayTimeout:2200,
-            autoplayHoverPause:true,
-            dots: false,
-
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        })
-    </script>
-
-
-</body>
-
-</html>
+{% endblock %}

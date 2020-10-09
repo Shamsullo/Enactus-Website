@@ -53,6 +53,13 @@ def projects(request):
 
     return render(request, 'projects.html', context)
 
+def projects_details(request, project_id):
+    project = Projects.objects.get(id=project_id)
+    contact = Contact.objects.get(id=1)
+    context = {'project': project, 'contact': contact}
+
+    return render(request, 'project_detail.html', context)
+
 
 def our_team(request):
     team = AcademicAdvisors.objects.all()
