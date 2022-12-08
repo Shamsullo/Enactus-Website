@@ -5,7 +5,7 @@ attrs==19.3.0
 backcall==0.1.0
 bleach==3.1.4
 bottle==0.12.18
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.3
 conan==1.25.1
